@@ -36,9 +36,12 @@ jobs:
       - name: Copy files to dest dir
         run: cp -a source/* dest/
 
+      - name: Remove all commits from gh-pages branch
+        run: git -c sequence.editor="sed -i '1s/^/b\n/'" rebase --interactive
+        working-directory: dest
+
       - name: Push site into gh-pages branch
         uses: EndBug/add-and-commit@v8.0.2
         with:
-          remove: .gitignore package.json package-lock.json .github
-          push: true
+          push: "--force"
           cwd: dest
