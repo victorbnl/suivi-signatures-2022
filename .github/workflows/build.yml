@@ -40,8 +40,8 @@ jobs:
         run: git -c sequence.editor="sed -i '1s/^/d\n/'" rebase --interactive HEAD
         working-directory: dest
 
-      - name: Push site into gh-pages branch
-        uses: EndBug/add-and-commit@v8.0.2
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          push: "--force"
-          cwd: dest
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dest
