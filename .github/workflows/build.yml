@@ -12,17 +12,14 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v2
         with:
-          path: "${GITHUB_WORKSPACE}/source/"
+          path: "./source/"
           ref: 'main'
 
       - name: Checkout gh-pages branch for output
         uses: actions/checkout@v2
         with:
-          path: "${GITHUB_WORKSPACE}/dest/"
+          path: "./dest/"
           ref: 'gh-pages'
-
-      - name: Debug
-        run: ls
 
       - name: Go in source dir
         run: cd "${GITHUB_WORKSPACE}/source/"
