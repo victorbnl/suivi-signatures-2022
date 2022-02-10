@@ -12,17 +12,17 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v2
         with:
-          path: '${GITHUB_WORKSPACE}/source/'
+          path: "${GITHUB_WORKSPACE}/source/"
           ref: 'main'
 
       - name: Checkout gh-pages branch for output
         uses: actions/checkout@v2
         with:
-          path: '${GITHUB_WORKSPACE}/dest/'
+          path: "${GITHUB_WORKSPACE}/dest/""
           ref: 'gh-pages'
 
       - name: Go in source dir
-        run: cd '${GITHUB_WORKSPACE}/source/'
+        run: cd "${GITHUB_WORKSPACE}/source/""
 
       - name: Install JS librairies
         run: npm install
@@ -34,11 +34,11 @@ jobs:
         run: touch .nojekyll
 
       - name: Copy files to dest dir
-        run: cp -a * ${GITHUB_WORKSPACE}/dest/
+        run: cp -a * "${GITHUB_WORKSPACE}/dest/"
 
       - name: Push site into gh-pages branch
         uses: EndBug/add-and-commit@v8.0.2
         with:
           remove: .gitignore package.json package-lock.json .github
           push: true
-          cwd: '${GITHUB_WORKSPACE}/dest'
+          cwd: "${GITHUB_WORKSPACE}/dest"
