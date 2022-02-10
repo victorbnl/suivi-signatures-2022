@@ -9,12 +9,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: |
-          npm install
-          rm -r .gitignore package.json package-lock.json .github
-          touch .nojekyll
-      - uses: EndBug/add-and-commit@v8.0.2
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install JS librairies
+        run: npm install
+      - name: Remove useless files
+        run: rm -r .gitignore package.json package-lock.json .github
+      - name: Add .nojekyll
+        run: touch .nojekyll
+      - name: Push site into gh-pages branch
+        uses: EndBug/add-and-commit@v8.0.2
         with:
           new_branch: gh-pages
           push: true
