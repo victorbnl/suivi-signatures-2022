@@ -34,11 +34,11 @@ jobs:
         working-directory: source
 
       - name: Copy files to dest dir
-        run: cp -a "${GITHUB_WORKSPACE}/*" "${GITHUB_WORKSPACE}/dest/"
+        run: cp -a source/* dest/
 
       - name: Push site into gh-pages branch
         uses: EndBug/add-and-commit@v8.0.2
         with:
           remove: .gitignore package.json package-lock.json .github
           push: true
-          cwd: "${GITHUB_WORKSPACE}/dest"
+          cwd: dest
