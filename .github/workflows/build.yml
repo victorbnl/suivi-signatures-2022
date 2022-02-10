@@ -1,0 +1,14 @@
+name: Build site
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+      - uses: EndBug/add-and-commit@v8
+        with:
+          author_name: bot
+          author_email: ""
+          message: "Update"
+          add: "."

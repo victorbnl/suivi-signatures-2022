@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgb(247, 247, 247);
+    color: rgb(32, 32, 32);
+}
+
+nav {
+    background-color: rgb(236, 236, 236);
+    padding: 3% 10%;
+}
+
+nav a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav ul {
+    line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+    nav {
+        display: none;
+    }
+}
+
+main {
+    padding: 3%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+section {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    padding: 3%
+}
+
+@media (max-width: 800px) {
+    section {
+        height: auto;
+    }
+}
+
+div {
+    width: 100%
+}
+
+canvas {
+    max-height: 100%;
+    max-width: 100%
+}
+
+h1, h2, h3 {
+    font-family: serif;
+}
+
+h1:first-child,
+h2:first-child {
+    margin-top: 0;
+}
+
+button {
+    font-family: inherit;
+}
+
+thead {
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+    border: solid 1px #ca2d2d;
+}
+
+td, th {
+    border-bottom: solid 1px #ca2d2d;
+    border-collapse: collapse;
+    padding: .5em;
+}
+
+th {
+    background-color: #ca2d2d;
+    color: white;
+    cursor: pointer;
+}
+
+#current_page {
+    width: 5ch;
+    text-align: center;
+}
+
+/* Hide number input arrows */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
