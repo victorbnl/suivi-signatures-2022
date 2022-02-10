@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css"></link>
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"></link>
+    <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css">
+    <script src="js/utils.js"></script>
+    <script src="node_modules/chart.js/dist/chart.min.js"></script>
+    <script src="node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.min.js"></script>
+    <title>Suivi signatures 2022</title>
+</head>
+<body>
+    <nav>
+        <h3>Navigation</h3>
+        <ul>
+            <li><a href="#per_candidate">Par candidat</a></li>
+            <li><a href="#per_candidate_evolution">Évolution par candidat</a></li>
+            <li><a href="#sides_pie">Bords politiques</a></li>
+            <li><a href="#all_signatures">Toutes les signatures</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <div style="text-align: center;">
+                <h1>Suivi des signatures</h1>
+                <h3>Présidentielle 2022</h3>
+                <p>&nbsp;</p>
+                <a href="#per_candidate" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-angle-down"></i></a>
+            </div>
+        </section>
+
+        <section id="per_candidate">
+            <div>
+                <h2>Signatures par candidat</h2>
+                <canvas id="per_candidate_bars"></canvas>
+                <script src="js/charts/current_bars.js"></script>
+            </div>
+        </section>
+
+        <section id="per_candidate_evolution">
+            <div>
+                <h2>Évolution des signatures par jour par candidat</h2>
+                <canvas id="per_candidate_evolution_chart"></canvas>
+                <p><button onclick="evolutionChart.mToggleAll()">Montrer/cacher tout</button> astuce: cliquez sur un candidat dans la légende pour l'afficher ou le cacher</p>
+                <script src="js/charts/evolution.js"></script>
+            </div>
+        </section>
+        
+        <section id="sides_pie">
+            <div>
+                <h2>Représentation des bords politiques dans les signatures</h2>
+                <canvas id="sides_pie_chart" style="max-height: 80vh"></canvas>
+                <script src="js/charts/sides_pie.js"></script>
+            </div>
+        </section>
+        
+        <section id="all_signatures">
+            <div style="height: 100%">
+                <h2>Toutes les signatures</h2>
+                <p><input id="search_field" type="text" placeholder="Rechercher" onkeyup="allSignaturesTable.update()"></p>
+                <p id="all_signatures_pages_buttons"><button onclick="allSignaturesTable.previousPage()"><i class="fa-solid fa-angle-left"></i></button>  Page <input type="number" id="current_page" onchange="allSignaturesTable.update()" min="0" value="0"> / <span id="page_total"></span> <button onclick="allSignaturesTable.nextPage()"><i class="fa-solid fa-angle-right"></i></button></p>
+                <table id="all_signatures_table">
+                    <thead>
+                        <tr>
+                            <th onclick="allSignaturesTable.toggleSortBy(0)">Nom</th>
+                            <th onclick="allSignaturesTable.toggleSortBy(1)">Prénom</th>
+                            <th onclick="allSignaturesTable.toggleSortBy(2)">Circonscription</th>
+                            <th onclick="allSignaturesTable.toggleSortBy(3)">Département</th>
+                            <th onclick="allSignaturesTable.toggleSortBy(4)">Candidat</th>
+                            <th onclick="allSignaturesTable.toggleSortBy(5)">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="all_signatures_data"></tbody>
+                </table>
+                <script src="js/all_signatures.js"></script>
+                <script>document.getElementById("search_field").focus()</script>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
