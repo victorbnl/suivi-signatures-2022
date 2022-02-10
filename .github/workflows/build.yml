@@ -21,6 +21,9 @@ jobs:
           path: "${GITHUB_WORKSPACE}/dest/"
           ref: 'gh-pages'
 
+      - name: Debug
+        run: ls
+
       - name: Go in source dir
         run: cd "${GITHUB_WORKSPACE}/source/"
 
