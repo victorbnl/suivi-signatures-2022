@@ -71,7 +71,7 @@ const allSignaturesTable = (() => {
             let html = "<thead><tr>"
             let columns = ["Nom de l'élu", "Prénom de l'élu", "Circonscription", "Département", "Candidat", "Date"]
             columns.forEach((column, i) => {
-                html += 
+                html +=
                     "<th onclick=\"allSignaturesTable.toggleSortBy("+ i +")\">"
                     + column
                     + (currentSortColumn == i ? currentSortOrder == -1 ? " <i class=\"fa-solid fa-sort-up\"></i>" : " <i class=\"fa-solid fa-sort-down\"></i>" : "")

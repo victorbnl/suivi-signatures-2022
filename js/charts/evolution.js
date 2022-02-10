@@ -1,4 +1,4 @@
-var evolutionChart 
+var evolutionChart
 
 getData()
     .then(res => {
@@ -64,7 +64,7 @@ getData()
                         title: {
                             display: true,
                             text: "Nombre de signatures"
-                        } 
+                        }
                     },
                     x: {
                         title: {
