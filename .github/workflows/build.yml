@@ -36,10 +36,6 @@ jobs:
       - name: Copy files to dest dir
         run: cp -a source/* dest/
 
-      - name: Remove all commits from gh-pages branch
-        run: git -c sequence.editor="sed -i '1s/^/d\n/'" rebase --interactive HEAD
-        working-directory: dest
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
