@@ -37,7 +37,7 @@ jobs:
         run: cp -a source/* dest/
 
       - name: Remove all commits from gh-pages branch
-        run: git -c sequence.editor="sed -i '1s/^/b\n/'" rebase --interactive
+        run: git -c sequence.editor="sed -i '1s/^/d\n/'" rebase --interactive HEAD
         working-directory: dest
 
       - name: Push site into gh-pages branch
