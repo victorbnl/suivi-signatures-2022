@@ -18,7 +18,7 @@ jobs:
       - name: Checkout gh-pages branch for output
         uses: actions/checkout@v2
         with:
-          path: "${GITHUB_WORKSPACE}/dest/""
+          path: "${GITHUB_WORKSPACE}/dest/"
           ref: 'gh-pages'
 
       - name: Go in source dir
